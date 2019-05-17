@@ -1,0 +1,32 @@
+#PF-Exer-26
+
+def factorial(number):
+    fact=1
+    while(number!=0):
+        fact=fact*number
+        number=number-1
+    return fact
+
+
+def find_strong_numbers(num_list):
+    res=0
+    strong_num=list()
+    for i in num_list:
+        if not(0<i<=2):
+          temp=i
+          while(i!=0):
+            res=res+factorial(i%10)
+            i=i//10
+          if res==temp:
+            strong_num.append(temp)
+        else :
+            strong_num.append(i)
+        
+    return strong_num
+            
+        
+
+
+num_list=[145,375,100,2,10]
+strong_num_list=find_strong_numbers(num_list)
+print(strong_num_list)
